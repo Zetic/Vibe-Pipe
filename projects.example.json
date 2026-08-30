@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Project Interlink",
+    "url": "https://zetic.github.io/Project-Interlink/",
+    "image": "assets/projects/interlink.webp",
+    "description": "Procedural planet generation sandbox",
+    "hidden": false,
+    "showTitle": false,
+    "newTab": false
+  }
+]
