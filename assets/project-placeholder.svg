@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">Vibe Pipe project placeholder</title>
+  <desc id="desc">A simple placeholder banner for a project without artwork.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f3f5" />
+      <stop offset="1" stop-color="#dfe3e8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="450" rx="34" fill="url(#bg)" />
+  <g fill="none" stroke="#9aa3ad" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".72">
+    <path d="M470 260c55-100 205-100 260 0" />
+    <path d="M500 190c40-70 160-70 200 0" />
+    <circle cx="600" cy="250" r="18" fill="#9aa3ad" stroke="none" />
+  </g>
+  <text x="600" y="345" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#68717b">PROJECT ARTWORK</text>
+</svg>
