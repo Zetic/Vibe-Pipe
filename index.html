@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A collection of projects, games, simulations, and experiments by Zetic." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Vibe Pipe</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Vibe Pipe home">
+        <span class="brand-main">VIBE PIPE</span>
+        <span class="brand-subtitle">projects and experiments by Zetic</span>
+      </a>
+    </header>
+
+    <main class="site-main">
+      <section aria-labelledby="projects-heading">
+        <h1 id="projects-heading" class="visually-hidden">Projects</h1>
+        <div id="project-grid" class="project-grid" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>
+          No projects have been added yet. Add entries to <code>projects.json</code> to populate the gallery.
+        </p>
+        <p id="error-state" class="error-state" hidden>
+          The project list could not be loaded. Check <code>projects.json</code> for valid JSON.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="https://github.com/Zetic" rel="me">GitHub</a>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
