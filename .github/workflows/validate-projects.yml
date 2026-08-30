@@ -1,0 +1,70 @@
+name: Validate project catalogue
+
+on:
+  pull_request:
+    paths:
+      - "projects.json"
+      - "assets/projects/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "projects.json"
+      - "assets/projects/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate projects.json
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          manifest = Path("projects.json")
+          data = json.loads(manifest.read_text(encoding="utf-8"))
+
+          if not isinstance(data, list):
+              raise SystemExit("projects.json must contain a JSON array")
+
+          seen_urls = set()
+          errors = []
+
+          for index, project in enumerate(data):
+              label = f"projects[{index}]"
+              if not isinstance(project, dict):
+                  errors.append(f"{label} must be an object")
+                  continue
+
+              for field in ("name", "url", "image"):
+                  value = project.get(field)
+                  if not isinstance(value, str) or not value.strip():
+                      errors.append(f"{label}.{field} must be a non-empty string")
+
+              url = project.get("url")
+              if isinstance(url, str) and url.strip():
+                  normalized = url.strip()
+                  if normalized in seen_urls:
+                      errors.append(f"{label}.url duplicates another project URL: {normalized}")
+                  seen_urls.add(normalized)
+
+              image = project.get("image")
+              if isinstance(image, str) and image.strip():
+                  parsed = urlparse(image.strip())
+                  if not parsed.scheme and not image.startswith("//"):
+                      local_path = Path(image.strip().lstrip("./"))
+                      if not local_path.is_file():
+                          errors.append(f"{label}.image does not exist: {image}")
+
+          if errors:
+              raise SystemExit("\n".join(errors))
+
+          print(f"Validated {len(data)} project entries.")
