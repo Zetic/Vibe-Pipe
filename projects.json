@@ -8,5 +8,10 @@
     "name": "Live2Nite",
     "url": "https://zetic.github.io/Live2Nite/",
     "image": "assets/projects/Live2Nite.png"
+  },
+  {
+    "name": "iChat",
+    "url": "https://i-chat-ten.vercel.app/",
+    "image": "assets/projects/iChat.png"
   }
 ]
