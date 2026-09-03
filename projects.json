@@ -13,5 +13,10 @@
     "name": "iChat",
     "url": "https://i-chat-ten.vercel.app/",
     "image": "assets/projects/iChat.png"
+  },
+  {
+    "name": "Planet Engine",
+    "url": "https://github.com/Zetic/Planet-Engine",
+    "image": "assets/projects/Planet-Engine.png"
   }
 ]
